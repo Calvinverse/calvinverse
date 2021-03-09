@@ -38,11 +38,38 @@ secrets.
 
 ## What is in the box
 
-* Two services
-  * UI
-  * Provisioning service
-* Definitions for data etc.
-* Scripts / tooling to create a meta-environment that will contain the two services
-  (bootstrap)
+The Calvinverse resources can be divided into two groups. The first group contains the resources and
+services necessary to create new environments. This environment is called the provisioning or
+meta environment. The second group contains the resources that form
+a build environment for the Calvinverse resources. This environment can be created if desired but
+there are other ways to construct the services and resources in the first group.
+
+### Meta environment
+
+The meta environment contains the following services and resources
+
+* A Dockerised service that provides a Web UI though which users can request
+  creation, updating or deletion of environments. Additionally this UI provides an overview of
+  all existing environments that a user has access to.
+* A Dockerised service that processes user requests by invoking the appropriate tools, e.g.
+  Terraform, to apply the requested changes. This service also tracks the current state of all the
+  known environments. This service is known as the provisioning service.
+
+In order to create the meta environment one can either use the configuration file for the orchestrator
+of choice or the provisioning service locally and provide it with the desired environment configuration.
+The benefit of the latter approach is that, with the appropriate templates, it is possible to create
+the desired orchestrators prior to creation of the user environments.
+
+### Calvinverse build environment
+
+The build environment contains the services and resources required to create all the images necessary
+for the meta environment.
+
+This build environment may be used, however it is not required to do so if the meta environment
+images can be created in another fashion.
+
+### Environment requirements
+
+* Assumes service discovery is done via Consul
 
 ## Examples
