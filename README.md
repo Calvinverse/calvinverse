@@ -20,7 +20,7 @@ resources (container instances, load balancers, event systems, service discovery
 data storage etc.) as well as configuring these systems, providing valid certificates, DNS names,
 securing the resources, setting up configurations etc..
 
-## Why not use <insert favorite tool here>
+## Why not use (insert favorite tool here)
 
 The problem of creating, updating and deleting resources is solved by many different tools, e.g.
 terraform or one of the orchestration systems (docker, Kubernetes etc.). But introducing secrets,
