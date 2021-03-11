@@ -70,6 +70,12 @@ images can be created in another fashion.
 
 ### Environment requirements
 
-* Assumes service discovery is done via Consul
+Both the meta environment and the build environment make some assumptions about their greater
+surroundings. The following assumptions are made:
 
-## Examples
+* Service discovery is done via [Consul](https://consul.io). If a Consul datacenter exists then
+  resources can be attached to this datacenter, otherwise there is a resource that can be used
+  to create a [Consul server cluster](https://github.com/Calvinverse/resource.hashi.server).
+* Environments can be defined in many ways. The Calvinverse resources assume that all the
+  resources reachable via their own service discovery datacenter are part of their own
+  environment.
